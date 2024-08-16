@@ -72,7 +72,7 @@ with st.sidebar.popover("啟用大語言功能"):
         st.session_state["temperature"] = temperature
 
 
-if st.session_state["api_key"] is not "":
+if st.session_state["api_key"] != "":
     st.sidebar.info("大語言功能已啟用")
 
 if upload_file:
