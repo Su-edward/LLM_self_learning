@@ -24,7 +24,7 @@ def extract_text_from_pdf(pdf_file):
         text += page.extract_text()
     return text
 
-st.title("語音助理")
+st.title("PDF對話助理")
 
 with st.sidebar.popover("啟用大語言功能"):
     api_key = st.text_input("輸入 OpenAI API Key", type="password")
@@ -121,11 +121,6 @@ elif prompt := st.chat_input("What is up?"):
                 )
 
             response = st.write_stream(stream)
-            # 合成语音
-            if st.session_state["voice"]:
-                speak(response, 'zh-tw')
-            else:
-                pass
 
         except:
             response = "請輸入正確的API key"
