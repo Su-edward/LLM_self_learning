@@ -57,10 +57,10 @@ with st.sidebar.popover("啟用大語言功能"):
 if st.session_state["api_key"] != "":
     st.sidebar.info("大語言功能已啟用")
 
-if st.sidebar.checkbox("語音回答"):
-    st.session_state["voice"] = True
-else:
-    st.session_state["voice"] = False
+# if st.sidebar.checkbox("語音回答"):
+#     st.session_state["voice"] = True
+# else:
+#     st.session_state["voice"] = False
 
 
 if st.sidebar.checkbox("使用PDF內容回答"):
