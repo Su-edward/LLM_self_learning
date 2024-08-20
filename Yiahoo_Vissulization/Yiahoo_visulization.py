@@ -27,7 +27,7 @@ if 'stock_data_list' not in st.session_state:
     st.session_state.stock_data_list = []
 
 # 用户输入股票代码
-stock = st.sidebar.text_input("請輸入股票代碼:如APPL,TSLA,GOOGL....",value='GOOGL')
+stock = st.sidebar.text_input("請輸入股票代碼:如AAPL,TSLA,GOOGL....",value='GOOGL')
 
 # 按钮用于添加股票
 if st.sidebar.button('新增股票'):
