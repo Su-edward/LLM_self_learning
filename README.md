@@ -1,1 +1,1 @@
-# LLM self learning
+# self learning
