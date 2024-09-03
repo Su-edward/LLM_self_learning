@@ -5,7 +5,7 @@
 
 ## 目錄結構
 
-📣 
+📣 Notion_Line_Notify: 使用Notion的表格內容，把符合條件的訊息再Line群組自動傳送的應用。
 
 🤖 Gemini_LLM: 使用 Gemini LLM 進行交互的應用程式。
 
