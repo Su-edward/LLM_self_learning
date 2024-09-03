@@ -5,7 +5,7 @@
 
 ## 目錄結構
 
-📂 Data_visualization: 資料視覺化相關的應用程式。  
+📣 
 
 🤖 Gemini_LLM: 使用 Gemini LLM 進行交互的應用程式。
 
@@ -19,7 +19,10 @@
 
 📊 Yahoo_Visualization: 從 Yahoo Finance 進行資料可視化的應用程式。
 
+📂 Data_visualization: 資料視覺化相關的應用程式。  
+
 🎥 Yt_Summary: 從 YouTube 影片生成摘要的應用程式。
+
 
 ## 安裝步驟
 🛠️ 安裝相應依賴的說明：
