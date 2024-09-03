@@ -17,7 +17,7 @@
 
 🗣️ Voice_chat: LLM 回答，並讓其可以使用語音輸出。
 
-📊 Yahoo_Visualization: 從 Yahoo Finance 進行資料可視化的應用程式。
+📊 Yahoo_Visualization: 從 Yahoo Finance 抓取資料並進行視覺化處理。
 
 📂 Data_visualization: 資料視覺化相關的應用程式。  
 
@@ -30,13 +30,13 @@
 pip install -r requirements.txt
 
 ## 使用說明
-🚀 啟動應用程式: 使用命令 streamlit run your_script.py 啟動各個應用程式。
+🚀 啟動應用程式: 使用命令 streamlit run script.py 啟動各個應用程式。
 
 📂 上傳資料: 根據應用程式需求上傳文件或輸入資料。
 
 ⚙️ 設定參數: 根據應用程式的側邊欄選項進行設置和操作。
 
-📊 查看結果: 生成並查看結果，還可以將結果下載為文件。
+📊 查看結果: 生成並查看結果，直接在頁面顯示或將結果下載。
 
 ## 貢獻指南
 
