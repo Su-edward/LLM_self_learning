@@ -1,7 +1,5 @@
 #隱式協同過濾（Implicit Collaborative Filtering）技術
 #透過Alternating Least Squares (ALS) 模型進行矩陣拆分
-
-
 from pathlib import Path
 from typing import Tuple, List
 from io import BytesIO
@@ -16,6 +14,7 @@ def load_user_artists(user_artists_file: Path) -> scipy.sparse.csr_matrix:
     """讀取檔案,並以 csr格式回傳."""
     user_artists = pd.read_csv(user_artists_file, sep="\t")
     user_artists.set_index(["userID", "artistID"], inplace=True)
+    """稀疏矩陣建立"""
     coo = scipy.sparse.coo_matrix(
         (
             user_artists.weight.astype(float),
@@ -63,7 +62,7 @@ class ImplicitRecommender:
         user_artists_matrix: scipy.sparse.csr_matrix,
         n: int = 10,
     ) -> Tuple[List[str], List[float]]:
-        """Return the top n recommendations for the given user."""
+        """矩陣相乘計算分數."""
         artist_ids, scores = self.implicit_model.recommend(
             user_id, user_artists_matrix[user_id], N=n
         )
@@ -83,7 +82,7 @@ if __name__ == "__main__":
     artist_retriever = ArtistRetriever()
     artist_retriever.load_artists(Path(r"lastfmdata\artists.dat"))
 
-    # Alternating least squares, ALS 建置
+    # ALS 協同過濾算法 進行矩陣拆分
     implict_model = implicit.als.AlternatingLeastSquares(
         factors=50, iterations=10, regularization=0.01
     )
