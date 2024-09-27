@@ -26,10 +26,10 @@ if 'stocks' not in st.session_state:
 if 'stock_data_list' not in st.session_state:
     st.session_state.stock_data_list = []
 
-# 用户输入股票代码
+# 用户輸入股票代码
 stock = st.sidebar.text_input("請輸入股票代碼:如AAPL,TSLA,GOOGL....",value='GOOGL')
 
-# 按钮用于添加股票
+# 按钮用於添加股票
 if st.sidebar.button('新增股票'):
     if stock and stock not in st.session_state.stocks:
         stock_data = find_stock(stock, start_year, end_year)
@@ -42,7 +42,7 @@ if st.sidebar.button('新增股票'):
     elif stock in st.session_state.stocks:
         st.warning(f"股票 {stock} 已經添加過了")
 
-# 绘制图表
+# 繪製
 if st.session_state.stocks:
     fig, ax = plt.subplots(figsize=(10, 6))
     
