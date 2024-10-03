@@ -89,11 +89,12 @@ if __name__ == "__main__":
     with col2:
         selected_gender = st.selectbox("選擇性別", options=["全部", "男", "女"])
     with col3:
-        selected_student_class = st.text_input("輸入班級號碼",value="")
+        class_names = database.get_class()
+        class_names.insert(0, "全部")
+        selected_student_class = st.selectbox("選擇班級", options=class_names)
 
     # 查詢並顯示學生資料
     student_data = database.students_search(name=selected_name, gender=selected_gender, student_class=selected_student_class)
-
     # 刪除列表
     delete_student = []
     selected_ids = []
@@ -128,7 +129,7 @@ if __name__ == "__main__":
         # 顯示刪除按鈕，並執行刪除操作
         if st.button("刪除選中的學生"):
             Confirm(database,delete_student,selected_ids)
-    
+    database.disconnect()
 
 
 

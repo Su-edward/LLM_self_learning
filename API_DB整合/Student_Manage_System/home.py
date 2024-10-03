@@ -22,17 +22,19 @@ def popup_dialog():
 # 定義不同的頁面內容
 def homepage():
     with open("home.py", "r", encoding="utf-8") as file:
-        exec(file.read())  # 讀取和執行DB.py的內容
+        exec(file.read())  
 def data_management():
     with open("pages/update_DB.py", "r", encoding="utf-8") as file:
         exec(file.read())  
 def student_info():
     with open("pages/Search_student.py", "r", encoding="utf-8") as file:
-        exec(file.read())  # 讀取和執行DB.py的內容
-def report_generation():
-    with open("pages/report.py", "r", encoding="utf-8") as file:
-        exec(file.read())  # 讀取和執行whisper_txt.py的內容
-
+        exec(file.read())  
+def student_grade():
+    with open("pages/Search_Score.py", "r", encoding="utf-8") as file:
+        exec(file.read())  
+def Analyze_grade():
+    with open("pages/Analyze_grade.py", "r", encoding="utf-8") as file:
+        exec(file.read())  
 
 
 
@@ -42,7 +44,7 @@ if __name__ == "__main__":
     with st.sidebar:
         st.title("學生資訊管理系統")
         st.header("教師端操作",divider="rainbow")
-        selected = option_menu(None, ["個人資料", "學生查詢", '成績查詢'], 
+        selected = option_menu(None, ["個人資料", "學生查詢", '成績查詢','成績分析'], 
             icons=['house', 'cloud-upload', "list-task", 'gear'], 
             menu_icon="cast", default_index=0,
             styles={
@@ -84,6 +86,8 @@ if __name__ == "__main__":
             data_management()
         elif selected == "學生查詢":
             student_info()
+        elif selected == "成績分析":
+            Analyze_grade()
         else:
-            pass
+            student_grade()
 
