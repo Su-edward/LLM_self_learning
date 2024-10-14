@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的個人介紹網站</title>
+
+    <!-- Google 字型 -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <style>
+        /* 基本樣式 */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            min-height: 200vh;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* 頁首區域 */
+        .parallax-container {
+            position: relative;
+            height: 250px;
+            background-image: url('/images/me.jpg'); /* 替換成你的背景圖片 */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .parallax-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 滾動動畫區域 */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* 調整卡片間距 */
+        .card-container {
+            display: flex;
+            justify-content: center; /* 將卡片集中顯示在中間 */
+            margin: 10px 0; /* 減少上下的外邊距 */
+            flex-wrap: wrap;
+            gap: 5px; /* 減少卡片之間的間距 */
+        }
+
+        
+        .card {
+            width: 280px; /* 卡片寬度 */
+            margin: 5px; /* 減少卡片之間的外邊距 */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 調整卡片中的圖片大小 */
+        .card img {
+            width: 90%;
+            height: 120px; /* 設置固定的高度 */
+            margin: 10px;
+            object-fit: cover; /* 確保圖片適應容器，並且不會變形 */
+        }
+
+
+        /* 卡片內容區域設置 */
+        .card-content {
+            display: flex;
+            flex-direction: column; /* 讓內容垂直排列 */
+            justify-content: flex-start; /* 讓文字靠上排列 */
+            margin: 10px auto; /* 縮小與上方區域的間距 */
+            padding: 15px;
+            text-align: left;
+            height: 100%; /* 確保卡片內容充滿卡片高度 */
+        }
+
+
+
+        /* 關於我的區域樣式 */
+        .about-container {
+            display: flex;
+            align-items: flex-start;
+            background-color: #f0f0f0;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1150px; /* 調整容器最大寬度 */
+            margin: auto;
+            flex-direction: row-reverse;
+        }
+
+        .about-content {
+            width: 65%; /* 調整文字區域寬度 */
+            line-height: 1.5; /* 調整行距，讓文字更緊湊 */
+            font-size: 1.1rem; /* 可視情況調整字體大小 */
+        }
+
+        .about-image {
+            width: 30%; /* 減少圖片寬度，讓版面更均衡 */
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        /* 說明區塊樣式 */
+        .intro-section {
+            background-color: #E8FFF5;
+            padding: 10px 10px;
+            margin: 2px 0;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+            max-width: 1150px;  /* 限制寬度，和卡片區域對齊 */
+            margin: 0 auto 0; /* 使區塊居中並調整上下間距 */
+        }
+
+        .intro-section h2 {
+            font-size: 2rem;
+            margin-bottom: 0; 
+        }
+
+        .intro-section p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        /* 頁尾樣式 */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            position: fixed;
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">蘇世界的個人網站</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <!-- active表示當前頁面 -->
+                      <a class="nav-link active" aria-current="page" href="home.html">回首頁</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="PersonalInfo.html">個人簡介</a>
+                  </li>
+                  <!-- .dropdown表示使用下拉式選單 -->
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">作品集</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#">網頁設計</a></li>
+                          <li><a class="dropdown-item" href="#">程式設計</a></li>
+                          <!-- .dropdown-divider下拉式選單裡的分隔線-->
+                          <li class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="#">平面設計</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">聯絡我</a>
+                  </li>
+              </ul>  
+              
+          </div>
+        </div>
+    </nav>
+      
+
+
+
+
+    <!-- 頁首區域 -->
+    <div class="parallax-container">
+        <div class="parallax-content">
+            <h1>歡迎來到蘇世界的個人網站</h1>
+            <p>我是軟體工程師，專注於各類型的資料處理、AI技術、資料數據化等領域。</p>
+        </div>
+    </div>
+
+
+    <!-- 新增的關於我區域 -->
+    <div class="about-container">
+        <div class="about-content">
+            <h2>關於我</h2>
+            <P>你好!我是蘇世界!我是中央大學資訊管理碩士班畢業的學生，對於解決複雜問題充滿熱情，特別是在AI、機器學習和大語言模型這些領域。熟悉 HTML、CSS、JavaScript 和各種框架，並且善於將數據與視覺效果結合，以提供更好的用戶體驗。我也對機器學習和深度學習領域充滿熱情，經常將這些技術應用於專案中。</P>
+        </div>
+        <div class="about-image">
+            <img src="images/personal.jpg" alt="我的照片">
+        </div>
+    </div>
+
+    <!-- 加入說明區塊 -->
+    <div class="intro-section">
+        <h2>專長技能介紹</h2>
+    </div>
+    <!-- 卡片展示區域 -->
+    <div class="card-container">
+        <div class="card">
+            <div class="card-content">
+                <h3>深度學習</h3>
+                <p>熟習CNN、RNNs和強化學習等架構使用，並應用於圖像識別、情緒分析等專案。</p>
+            </div>
+            <img src="images/CNN.png" alt="專案1">
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h3>LLM研究</h3>
+                <p>熟習大語言模型的框架，實現語音對話、知識管理、報表分析等功能的小型專案。</p>
+            </div>
+            <img src="images/LLM.png" alt="專案2">
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h3>數據管理</h3>
+                <p>實現連結後端數據庫，進行即時數據查詢，視覺化呈現。</p>
+            </div>
+            <img src="images/StudentSystem.png" alt="專案3">
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h3>前端設計</h3>
+                <p>熟悉javascrip、Html和Css等語法，應用記帳簿、個人網站等專案</p>
+            </div>
+            <img src="images/Html.png" alt="專案4">
+        </div>
+    </div>
+
+
+
+
+    <!-- 頁尾區域 -->
+    <footer>
+        <div style="display: flex; justify-content: space-around; padding: 1px; background-color: #333; font-size: 20px;">
+            <!-- 聯絡資訊 -->
+            <div>
+                <p>Phone : 0968-936-180</p>
+            </div>
+    
+            <div>
+                <p>Email : edward89618@gmail.com</p>
+            </div>
+            <div>
+                <p>&copy; 2024 蘇世界的個人網站. 版權所有.</p>
+            </div>
+
+        </div>
+    
+    </footer>
+
+    <!-- JavaScript for 滾動動畫 -->
+    <script>
+        document.addEventListener("scroll", function() {
+            const fadeInSection = document.querySelector(".fade-in-section");
+            const sectionPosition = fadeInSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+
+            if (sectionPosition < screenPosition) {
+                fadeInSection.classList.add("is-visible");
+            }
+        });
+    </script>
+
+</body>
+</html>
